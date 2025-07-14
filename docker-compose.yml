@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  servicio-pedidos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: servicio-pedidos
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+    volumes:
+      - ./build/libs:/app/build/libs
+    depends_on: []
+    restart: unless-stopped
