@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor          //  ←  ESTE
+@AllArgsConstructor
 public class Inventory {
 
     @Id

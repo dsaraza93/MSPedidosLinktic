@@ -23,7 +23,7 @@ public class CatalogClient {
                 .build();
     }
 
-    /* ---------- Obtener producto completo ---------- */
+
     public ProductDto getProduct(Long id) throws RestClientException {
         return rest.get()
                 .uri("/api/products/{id}", id)
@@ -32,7 +32,7 @@ public class CatalogClient {
                 .body(ProductDto.class);
     }
 
-    /* ---------- Sobrescribir producto completo ---------- */
+
     public void putProduct(ProductDto dto) throws RestClientException {
         rest.put()
                 .uri("/api/products/{id}", dto.id())
@@ -42,7 +42,7 @@ public class CatalogClient {
                 .toBodilessEntity();
     }
 
-    /* ---------- Atajo: actualizar sólo cantidad ---------- */
+
     public void updateQuantity(Long id, int newQty) {
         ProductDto current = getProduct(id);          // 1) leer
         ProductDto updated = new ProductDto(
@@ -54,7 +54,7 @@ public class CatalogClient {
         putProduct(updated);                          // 3) enviar
     }
 
-    /* Devuelve true si el producto existe (2xx) */
+
     public boolean exists(Long id) {
         try {
             HttpStatusCode code = rest.head()
